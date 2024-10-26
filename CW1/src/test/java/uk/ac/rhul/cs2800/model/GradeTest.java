@@ -3,7 +3,6 @@ package uk.ac.rhul.cs2800.model;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import uk.ac.rhul.cs2800.model.Grade;
 
 /**
  * Unit tests for the Grade class.
@@ -14,26 +13,26 @@ class GradeTest {
 
   @BeforeEach
   void setUp() {
-    // Initialize a Grade instance with a score of 85
+    // Test 1: Initialize a Grade instance with a score of 85
     grade = new Grade(85);
   }
 
   @Test
   void testGradeInitialization() {
-    // Ensure that the grade is initialized correctly
+    // Test 2: Ensure that the grade is initialized correctly
     assertEquals(85, grade.getScore());
   }
 
   @Test
   void testChangeGrade() {
-    // Ensure that the grade can be updated
+    // Test 3: Ensure that the grade can be updated
     grade.setScore(90);
     assertEquals(90, grade.getScore());
   }
 
   @Test
   void testGradeWithVariousIntegers() {
-    // Test different integer values
+    // Test 4: Test different integer values (including negative and large numbers)
     grade.setScore(-10);
     assertEquals(-10, grade.getScore());
 

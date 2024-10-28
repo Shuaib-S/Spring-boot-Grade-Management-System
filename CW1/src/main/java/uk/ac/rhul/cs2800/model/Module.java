@@ -11,13 +11,13 @@ public class Module {
 
   /**
    * Constructs a new Module with the specified code, name, and mnc status.
-   * 
+   *
    * @param code the module code, cannot be null or empty.
-   * 
+   *
    * @param name the module name, cannot be null or empty.
-   * 
+   *
    * @param mnc whether the module is mandatory non-condonable.
-   * 
+   *
    * @throws IllegalArgumentException if code or name is null or empty.
    */
   public Module(String code, String name, boolean mnc) {
@@ -28,7 +28,7 @@ public class Module {
 
   /**
    * Gets the module code.
-   * 
+   *
    * @return the code of the module.
    */
   public String getCode() {
@@ -37,9 +37,9 @@ public class Module {
 
   /**
    * Sets the module code.
-   * 
+   *
    * @param code the new code for the module, cannot be null or empty.
-   * 
+   *
    * @throws IllegalArgumentException if code is null or empty.
    */
   public void setCode(String code) {
@@ -51,7 +51,7 @@ public class Module {
 
   /**
    * Gets the module name.
-   * 
+   *
    * @return the name of the module.
    */
   public String getName() {
@@ -60,9 +60,9 @@ public class Module {
 
   /**
    * Sets the module name.
-   * 
+   *
    * @param name the new name for the module, cannot be null or empty.
-   * 
+   *
    * @throws IllegalArgumentException if name is null or empty.
    */
   public void setName(String name) {
@@ -74,7 +74,7 @@ public class Module {
 
   /**
    * Checks if the module is mandatory and non-condonable (MNC).
-   * 
+   *
    * @return true if the module is mandatory non-condonable, otherwise false.
    */
   public boolean isMandatoryNonCondonable() {
@@ -83,7 +83,7 @@ public class Module {
 
   /**
    * Sets whether the module is mandatory non-condonable.
-   * 
+   *
    * @param mnc the new status of mandatory non-condonable.
    */
   public void setMandatoryNonCondonable(boolean mnc) {

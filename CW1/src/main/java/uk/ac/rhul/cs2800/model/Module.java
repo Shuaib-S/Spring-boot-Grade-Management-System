@@ -13,8 +13,11 @@ public class Module {
    * Constructs a new Module with the specified code, name, and mnc status.
    * 
    * @param code the module code, cannot be null or empty.
+   * 
    * @param name the module name, cannot be null or empty.
+   * 
    * @param mnc whether the module is mandatory non-condonable.
+   * 
    * @throws IllegalArgumentException if code or name is null or empty.
    */
   public Module(String code, String name, boolean mnc) {
@@ -36,6 +39,7 @@ public class Module {
    * Sets the module code.
    * 
    * @param code the new code for the module, cannot be null or empty.
+   * 
    * @throws IllegalArgumentException if code is null or empty.
    */
   public void setCode(String code) {
@@ -58,6 +62,7 @@ public class Module {
    * Sets the module name.
    * 
    * @param name the new name for the module, cannot be null or empty.
+   * 
    * @throws IllegalArgumentException if name is null or empty.
    */
   public void setName(String name) {

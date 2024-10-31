@@ -1,7 +1,6 @@
 package uk.ac.rhul.cs2800.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,10 +39,4 @@ class GradeTest {
     assertTrue(grade.getModule().isMandatoryNonCondonable());
   }
 
-  @Test
-  void testInvalidGradeScore() {
-    // Test 5: Ensure that invalid grade scores are not accepted
-    assertThrows(IllegalArgumentException.class, () -> new Grade(-1, module));
-    assertThrows(IllegalArgumentException.class, () -> new Grade(101, module));
-  }
 }

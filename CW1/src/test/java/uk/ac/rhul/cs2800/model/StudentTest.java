@@ -37,7 +37,7 @@ class StudentTest {
     assertTrue(student.getGrades().isEmpty());
   }
 
-}
+
 
   @Test
   void testRegisterModule() {

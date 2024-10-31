@@ -80,4 +80,73 @@ public class Student {
     return email;
   }
 
+  /**
+   * Gets the list of modules the student is registered for.
+   *
+   * @return a list of Registration objects.
+   */
+  public List<Registration> getRegistrations() {
+    return registrations;
+  }
+
+  /**
+   * Gets the list of grades the student has received.
+   *
+   * @return a list of Grade objects.
+   */
+  public List<Grade> getGrades() {
+    return grades;
+  }
+
+  /**
+   * Registers the student for a specified module by creating a new Registration object and adding
+   * it to the list of registrations.
+   *
+   * @param module the module to register the student in.
+   */
+  public void registerModule(Module module) {
+    registrations.add(new Registration(this, module));
+  }
+
+  /**
+   * Adds a grade to the student's list of grades.
+   *
+   * @param grade the grade to be added.
+   */
+  public void addGrade(Grade grade) {
+    grades.add(grade);
+  }
+
+  /**
+   * Computes the average score of the student's grades.
+   *
+   * @return the average grade as a float, or 0 if no grades are present.
+   */
+  public float computeAverage() {
+    if (grades.isEmpty()) {
+      return 0;
+    }
+
+    int total = 0;
+    for (Grade grade : grades) {
+      total += grade.getScore();
+    }
+
+    return total / (float) grades.size();
+  }
+
+  /**
+   * Retrieves the grade associated with a specific module.
+   *
+   * @param module the module for which to retrieve the grade.
+   * @return the Grade object for the specified module, or null if no grade is found.
+   */
+  public Grade getGrade(Module module) {
+    for (Grade grade : grades) {
+      if (grade.getModule().equals(module)) {
+        return grade;
+      }
+    }
+    return null; // Return null if no grade is found for the specified module
+  }
 }

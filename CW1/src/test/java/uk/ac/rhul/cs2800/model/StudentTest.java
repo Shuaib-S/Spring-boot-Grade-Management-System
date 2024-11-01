@@ -1,10 +1,13 @@
 package uk.ac.rhul.cs2800.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
+import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 class StudentTest {
 
@@ -20,7 +23,7 @@ class StudentTest {
     student = new Student(1L, "John", "Doe", "jdoe", "jdoe@example.com"); // Constructor will be
                                                                           // int,String,String,String,String
     module1 = new Module("CS2800", "Software Engineering", true);
-    module2 = new Module("CS2900", "Advanced Software Engineering", true);
+    x module2 = new Module("CS2900", "Advanced Software Engineering", true);
     grade1 = new Grade(85, module1); // initiliase grade 1 and 2 for testing
     grade2 = new Grade(90, module2);
   }
@@ -68,13 +71,28 @@ class StudentTest {
 
 
   @Test
-  void testGetGradeForModule() {
+  void testGetGradeForModule() throws NoRegistrationException, NoGradeAvailableException {
     // Test 6: Retrieve grade for a specific module
     student.addGrade(grade1); // Grade associated with module1
     student.addGrade(grade2); // Grade associated with module2
 
     assertEquals(grade1, student.getGrade(module1)); // Check if correct grade is retrieved
     assertEquals(grade2, student.getGrade(module2)); // Check if correct grade is retrieved
+  }
+
+  @Test
+  void testGetGradeThrowsNoRegistrationException() {
+    // Test that NoRegistrationException is thrown when student is not registered in the module
+    assertThrows(NoRegistrationException.class, () -> student.getGrade(module1));
+  }
+
+  @Test
+  void testGetGradeThrowsNoGradeAvailableException() throws NoRegistrationException {
+    // Register the student in a module but do not add a grade
+    student.registerModule(module1);
+
+    // Test that NoGradeAvailableException is thrown when no grade is available for the module
+    assertThrows(NoGradeAvailableException.class, () -> student.getGrade(module1));
   }
 
 }

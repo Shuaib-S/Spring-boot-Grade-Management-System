@@ -154,19 +154,21 @@ public class Student {
         break;
       }
     }
-    
+
     if (!isRegistered) {
-      throw new NoRegistrationException("Student is not registered for the module: " + module.getName());
+      throw new NoRegistrationException(
+          "Student is not registered for the module: " + module.getName());
     }
 
-    // Find the grade for the specified module
+    // Check if there is a grade for the specified module
     for (Grade grade : grades) {
       if (grade.getModule().equals(module)) {
         return grade;
       }
     }
 
-    // Throw exception if no grade is found for the registered module
+    // If the student is registered but no grade is found, throw NoGradeAvailableException
     throw new NoGradeAvailableException("No grade available for the module: " + module.getName());
   }
+
 }

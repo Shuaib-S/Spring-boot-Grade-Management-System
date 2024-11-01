@@ -2,6 +2,8 @@ package uk.ac.rhul.cs2800.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import uk.ac.rhul.cs2800.exception.NoGradeAvailableException;
+import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 
 /**
  * Represents a student in the system, storing information about personal details, registered
@@ -139,14 +141,32 @@ public class Student {
    * Retrieves the grade associated with a specific module.
    *
    * @param module the module for which to retrieve the grade.
-   * @return the Grade object for the specified module, or null if no grade is found.
+   * @return the Grade object for the specified module.
+   * @throws NoRegistrationException if the student is not registered in the specified module.
+   * @throws NoGradeAvailableException if no grade is available for the specified module.
    */
-  public Grade getGrade(Module module) {
+  public Grade getGrade(Module module) throws NoRegistrationException, NoGradeAvailableException {
+    // Check if the student is registered for the specified module
+    boolean isRegistered = false;
+    for (Registration registration : registrations) {
+      if (registration.getModule().equals(module)) {
+        isRegistered = true;
+        break;
+      }
+    }
+    
+    if (!isRegistered) {
+      throw new NoRegistrationException("Student is not registered for the module: " + module.getName());
+    }
+
+    // Find the grade for the specified module
     for (Grade grade : grades) {
       if (grade.getModule().equals(module)) {
         return grade;
       }
     }
-    return null; // Return null if no grade is found for the specified module
+
+    // Throw exception if no grade is found for the registered module
+    throw new NoGradeAvailableException("No grade available for the module: " + module.getName());
   }
 }

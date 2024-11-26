@@ -1,10 +1,28 @@
 package uk.ac.rhul.cs2800.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 /**
  * Represents the registration of a student in a specific module.
  */
+
+@Entity
 public class Registration {
+
+  @Id
+  @GeneratedValue
+  private int id;
+
+  @ManyToOne
+  @JoinColumn(name = "student_id")
   private Student student; // to be implemented after
+
+  @ManyToOne
+  @JoinColumn(name = "module_code")
   private Module module;
 
   /**

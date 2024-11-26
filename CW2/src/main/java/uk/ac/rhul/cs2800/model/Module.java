@@ -1,10 +1,18 @@
 package uk.ac.rhul.cs2800.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 /**
  * Represents a module in the student grade management system. Each module has a code, name, and a
  * mandatory non-condonable flag (mnc).
  */
+@Entity
 public class Module {
+
+  @Id
+  @GeneratedValue
   private String code;
   private String name;
   private boolean mnc; // Mandatory Non-Condonable

@@ -48,7 +48,7 @@ public class Registration {
    *
    * @return the student.
    */
-  public Student getStudent() { // TBD
+  public Student getStudent() {
     return student;
   }
 

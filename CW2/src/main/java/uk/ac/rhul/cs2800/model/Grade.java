@@ -32,10 +32,18 @@ public class Grade {
    * @param score the grade score.
    */
 
-  public Grade(int score, Module module) {
-    this.score = score;
-    this.module = module;
+  public Grade() {
+
   }
+
+  public Grade(int score, Student student, Module module) {
+    this.score = score;
+    this.student = student;
+    this.module = module;
+
+  }
+
+
 
   public int getScore() {
     return score;
@@ -48,5 +56,18 @@ public class Grade {
 
   public Module getModule() {
     return module;
+  }
+
+  public void setModule(Module module) {
+    this.module = module;
+  }
+
+
+  public Student getStudent() {
+    return student;
+  }
+
+  public void setStudent(Student student) {
+    this.student = student;
   }
 }

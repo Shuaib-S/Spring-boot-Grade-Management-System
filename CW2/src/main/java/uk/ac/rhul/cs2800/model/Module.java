@@ -1,7 +1,6 @@
 package uk.ac.rhul.cs2800.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 /**
@@ -12,7 +11,6 @@ import jakarta.persistence.Id;
 public class Module {
 
   @Id
-  @GeneratedValue
   private String code;
   private String name;
   private boolean mnc; // Mandatory Non-Condonable
@@ -32,6 +30,11 @@ public class Module {
     setCode(code);
     setName(name);
     this.mnc = mnc;
+  }
+
+
+  public Module() {
+
   }
 
   /**

@@ -103,7 +103,7 @@ public class Student {
    *
    * @return a list of Registration objects.
    */
-  public List<Registration> getRegistrations() {
+  public List<Registration> listRegistrations() {
     return registrations;
   }
 
@@ -112,7 +112,7 @@ public class Student {
    *
    * @return a list of Grade objects.
    */
-  public List<Grade> getGrades() {
+  public List<Grade> listGrades() {
     return grades;
   }
 

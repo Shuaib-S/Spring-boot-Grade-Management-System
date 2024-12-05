@@ -36,8 +36,8 @@ class StudentTest {
     assertEquals("Doe", student.getLastName());
     assertEquals("jdoe", student.getUsername());
     assertEquals("jdoe@example.com", student.getEmail());
-    assertTrue(student.getRegistrations().isEmpty());
-    assertTrue(student.getGrades().isEmpty());
+    assertTrue(student.listRegistrations().isEmpty());
+    assertTrue(student.listGrades().isEmpty());
   }
 
 
@@ -46,7 +46,7 @@ class StudentTest {
   void testRegisterModule() {
     // Test 3: Register the student in a module and verify
     student.registerModule(module1);
-    List<Registration> registrations = student.getRegistrations();
+    List<Registration> registrations = student.listRegistrations();
     assertEquals(1, registrations.size());
     assertEquals(module1, registrations.get(0).getModule());
   }
@@ -55,8 +55,8 @@ class StudentTest {
   void testAddGrade() {
     // Test 4: Add a grade to the student and verify
     student.addGrade(grade1);
-    assertEquals(1, student.getGrades().size()); // check list size is 1
-    assertEquals(grade1, student.getGrades().get(0)); // check index 0 contains grade1
+    assertEquals(1, student.listGrades().size()); // check list size is 1
+    assertEquals(grade1, student.listGrades().get(0)); // check index 0 contains grade1
   }
 
   @Test

@@ -54,7 +54,7 @@ public class GradeController {
 
     // Create a Grade object and set all values
     Grade grade = new Grade();
-    grade.setScore(Integer.valueOf(params.get("score")));
+    grade.setScore(Integer.parseInt(params.get("score")));
     grade.setStudent(student);
     grade.setModule(module);
 

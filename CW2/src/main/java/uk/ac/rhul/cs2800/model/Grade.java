@@ -26,15 +26,16 @@ public class Grade {
   private Module module; // Reference to the module
 
 
+
+  public Grade() {
+
+  }
+
   /**
    * Constructs a new Grade with the specified score.
    *
    * @param score the grade score.
    */
-
-  public Grade() {
-
-  }
 
   public Grade(int score, Student student, Module module) {
     this.score = score;

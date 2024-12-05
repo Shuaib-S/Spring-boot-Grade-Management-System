@@ -13,9 +13,11 @@ class GradeTest {
   @BeforeEach
   void setUp() {
     // Test 1: Initialize a Module and a Grade with a specific score
+    Student student = new Student(1L, "John", "Doe", "jdoe", "jdoe@example.com");
     module = new Module("CS2800", "Software Engineering", true);
-    grade = new Grade(85, module);
+    grade = new Grade(85, student, module);
   }
+
 
   @Test
   void testGradeInitialization() {

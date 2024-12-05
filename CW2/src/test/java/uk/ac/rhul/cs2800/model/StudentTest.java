@@ -24,8 +24,8 @@ class StudentTest {
                                                                           // int,String,String,String,String
     module1 = new Module("CS2800", "Software Engineering", true);
     module2 = new Module("CS2900", "Advanced Software Engineering", true);
-    grade1 = new Grade(85, module1); // initiliase grade 1 and 2 for testing
-    grade2 = new Grade(90, module2);
+    grade1 = new Grade(85, student, module1); // initiliase grade 1 and 2 for testing
+    grade2 = new Grade(90, student, module2);
   }
 
   @Test
@@ -62,8 +62,8 @@ class StudentTest {
   @Test
   void testComputeAverage() {
     // Add grades that result in a whole number average
-    student.addGrade(new Grade(80, module1));
-    student.addGrade(new Grade(90, module2));
+    student.addGrade(new Grade(80, student, module1));
+    student.addGrade(new Grade(90, student, module2));
 
     // Check if the average is exactly 85.0
     assertEquals(85.0, student.computeAverage());

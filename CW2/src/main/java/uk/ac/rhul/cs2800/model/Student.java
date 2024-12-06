@@ -1,6 +1,7 @@
 package uk.ac.rhul.cs2800.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import uk.ac.rhul.cs2800.exception.NoRegistrationException;
 public class Student {
 
   @Id
+  @GeneratedValue
   private Long id;
   private String firstName;
   private String lastName;
@@ -45,6 +47,10 @@ public class Student {
     this.email = email;
     this.registrations = new ArrayList<>();
     this.grades = new ArrayList<>();
+  }
+
+  public Student() {
+
   }
 
   /**
@@ -97,7 +103,7 @@ public class Student {
    *
    * @return a list of Registration objects.
    */
-  public List<Registration> getRegistrations() {
+  public List<Registration> listRegistrations() {
     return registrations;
   }
 
@@ -106,7 +112,7 @@ public class Student {
    *
    * @return a list of Grade objects.
    */
-  public List<Grade> getGrades() {
+  public List<Grade> listGrades() {
     return grades;
   }
 

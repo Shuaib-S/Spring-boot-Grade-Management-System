@@ -24,8 +24,8 @@ class StudentTest {
                                                                           // int,String,String,String,String
     module1 = new Module("CS2800", "Software Engineering", true);
     module2 = new Module("CS2900", "Advanced Software Engineering", true);
-    grade1 = new Grade(85, module1); // initiliase grade 1 and 2 for testing
-    grade2 = new Grade(90, module2);
+    grade1 = new Grade(85, student, module1); // initiliase grade 1 and 2 for testing
+    grade2 = new Grade(90, student, module2);
   }
 
   @Test
@@ -36,8 +36,8 @@ class StudentTest {
     assertEquals("Doe", student.getLastName());
     assertEquals("jdoe", student.getUsername());
     assertEquals("jdoe@example.com", student.getEmail());
-    assertTrue(student.getRegistrations().isEmpty());
-    assertTrue(student.getGrades().isEmpty());
+    assertTrue(student.listRegistrations().isEmpty());
+    assertTrue(student.listGrades().isEmpty());
   }
 
 
@@ -46,7 +46,7 @@ class StudentTest {
   void testRegisterModule() {
     // Test 3: Register the student in a module and verify
     student.registerModule(module1);
-    List<Registration> registrations = student.getRegistrations();
+    List<Registration> registrations = student.listRegistrations();
     assertEquals(1, registrations.size());
     assertEquals(module1, registrations.get(0).getModule());
   }
@@ -55,15 +55,15 @@ class StudentTest {
   void testAddGrade() {
     // Test 4: Add a grade to the student and verify
     student.addGrade(grade1);
-    assertEquals(1, student.getGrades().size()); // check list size is 1
-    assertEquals(grade1, student.getGrades().get(0)); // check index 0 contains grade1
+    assertEquals(1, student.listGrades().size()); // check list size is 1
+    assertEquals(grade1, student.listGrades().get(0)); // check index 0 contains grade1
   }
 
   @Test
   void testComputeAverage() {
     // Add grades that result in a whole number average
-    student.addGrade(new Grade(80, module1));
-    student.addGrade(new Grade(90, module2));
+    student.addGrade(new Grade(80, student, module1));
+    student.addGrade(new Grade(90, student, module2));
 
     // Check if the average is exactly 85.0
     assertEquals(85.0, student.computeAverage());

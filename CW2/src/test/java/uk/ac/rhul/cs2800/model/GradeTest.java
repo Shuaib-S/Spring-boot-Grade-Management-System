@@ -38,7 +38,7 @@ class GradeTest {
     // Test 4: Verify that the module associated with the grade is correct
     assertEquals("CS2800", grade.getModule().getCode());
     assertEquals("Software Engineering", grade.getModule().getName());
-    assertTrue(grade.getModule().isMandatoryNonCondonable());
+    assertTrue(grade.getModule().getmnc());
   }
 
 }

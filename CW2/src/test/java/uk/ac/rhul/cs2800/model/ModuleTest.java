@@ -22,7 +22,7 @@ public class ModuleTest {
     // Test 2: Ensure that the module is initialized correctly
     assertEquals("CS2800", module.getCode());
     assertEquals("Software Engineering", module.getName());
-    assertTrue(module.isMandatoryNonCondonable());
+    assertTrue(module.getmnc());
   }
 
   @Test
@@ -30,11 +30,11 @@ public class ModuleTest {
     // Test 3: Ensure that module details can be updated
     module.setCode("CS2900");
     module.setName("Advanced Software Engineering");
-    module.setMandatoryNonCondonable(false); // add setters after
+    module.setmnc(false); // add setters after
 
     assertEquals("CS2900", module.getCode());
     assertEquals("Advanced Software Engineering", module.getName());
-    assertFalse(module.isMandatoryNonCondonable()); // add is MNC after (returns mnc value)
+    assertFalse(module.getmnc()); // add is MNC after (returns mnc value)
   }
 
   @Test

@@ -88,7 +88,7 @@ public class Module {
    *
    * @return true if the module is mandatory non-condonable, otherwise false.
    */
-  public boolean isMandatoryNonCondonable() {
+  public boolean getmnc() {
     return mnc;
   }
 
@@ -97,7 +97,7 @@ public class Module {
    *
    * @param mnc the new status of mandatory non-condonable.
    */
-  public void setMandatoryNonCondonable(boolean mnc) {
+  public void setmnc(boolean mnc) {
     this.mnc = mnc;
   }
 }
